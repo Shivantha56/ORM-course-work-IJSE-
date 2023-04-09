@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="871.0" prefWidth="1391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.DashBoardFormController">
+   <children>
+      <Label layoutX="197.0" layoutY="237.0" text="DashBoard">
+         <font>
+            <Font size="95.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
