@@ -1,25 +1,16 @@
 package lk.ijse.gdse.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import lk.ijse.gdse.dto.UserDTO;
-import lk.ijse.gdse.entity.User;
 import lk.ijse.gdse.service.custom.impl.UserServiceImpl;
 import lk.ijse.gdse.util.Navigation;
 import lk.ijse.gdse.util.Routes;
-
-
-import java.net.URL;
-import java.util.Objects;
 
 
 public class LoginFormController {
@@ -38,7 +29,7 @@ public class LoginFormController {
     UserServiceImpl userService = new UserServiceImpl();
 
 
-    public void clearField(){
+    public void clearField() {
         signupFullName.clear();
         signUpUserName.clear();
         signUpEmail.clear();
@@ -49,34 +40,34 @@ public class LoginFormController {
         String userName = txtUserName.getText();
 
         try {
-            
+
             if (txtPassword.getText().isEmpty() && txtUserName.getText().isEmpty()) {
                 new Alert(Alert.AlertType.ERROR, "Enter username and password").show();
             } else if (txtPassword.getText().isEmpty()) {
-                new Alert(Alert.AlertType.ERROR,"Enter password").show();
+                new Alert(Alert.AlertType.ERROR, "Enter password").show();
             } else if (txtUserName.getText().isEmpty()) {
-                new Alert(Alert.AlertType.ERROR,"Enter username").show();
+                new Alert(Alert.AlertType.ERROR, "Enter username").show();
             } else {
-                UserDTO  userDTO = userService.search(userName);
+                UserDTO userDTO = userService.search(userName);
                 String userName1 = userDTO.getUserName();
                 String password = userDTO.getPassword();
 
 
-                if((txtUserName.getText().equals(userName1)&&txtPassword.getText().equals(password))){
+                if ((txtUserName.getText().equals(userName1) && txtPassword.getText().equals(password))) {
                     Stage stage = Navigation.init(mainContext);
                     stage.close();
                     Navigation.navigate(Routes.DashBoard);
-                }else {
-                    new Alert(Alert.AlertType.ERROR,"something happen, please try again").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "something happen, please try again").show();
 
                 }
             }
 
         } catch (NullPointerException e) {
             System.out.println(e);
-            new Alert(Alert.AlertType.ERROR,"Enter valid user name and password").show();
+            new Alert(Alert.AlertType.ERROR, "Enter valid user name and password").show();
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR,"Something happen please try again or contact developer").show();
+            new Alert(Alert.AlertType.ERROR, "Something happen please try again or contact developer").show();
             throw new RuntimeException(e);
         }
 
@@ -97,24 +88,24 @@ public class LoginFormController {
         String password = singUpPassword.getText();
 
         try {
-            if (userService.save(new UserDTO(name,userName,email,password))) {
+            if (userService.save(new UserDTO(name, userName, email, password))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User saved successful!").show();
                 clearField();
             }
-        }catch (Exception e){
-            System.out.println(e);;
-            new Alert(Alert.AlertType.WARNING,"Can not save user please try again..").show();
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.WARNING, "Can not save user please try again..").show();
         }
 
     }
 
     public void checkBoxShowPassword(ActionEvent actionEvent) {
         boolean selected = checkBoxShowPassword.isSelected();
-        if(selected){
+        if (selected) {
             txtPassword.setVisible(false);
             showPasswordField.setVisible(true);
             showPasswordField.setText(txtPassword.getText());
-        }else {
+        } else {
             txtPassword.setVisible(true);
             showPasswordField.setVisible(false);
         }
