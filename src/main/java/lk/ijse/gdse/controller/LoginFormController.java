@@ -19,6 +19,7 @@ import lk.ijse.gdse.util.Routes;
 
 
 import java.net.URL;
+import java.util.Objects;
 
 
 public class LoginFormController {
@@ -48,19 +49,32 @@ public class LoginFormController {
         String userName = txtUserName.getText();
 
         try {
-         UserDTO  userDTO = userService.search(userName);
-            String userName1 = userDTO.getUserName();
-            String password = userDTO.getPassword();
+            
+            if (txtPassword.getText().isEmpty() && txtUserName.getText().isEmpty()) {
+                new Alert(Alert.AlertType.ERROR, "Enter username and password").show();
+            } else if (txtPassword.getText().isEmpty()) {
+                new Alert(Alert.AlertType.ERROR,"Enter password").show();
+            } else if (txtUserName.getText().isEmpty()) {
+                new Alert(Alert.AlertType.ERROR,"Enter username").show();
+            } else {
+                UserDTO  userDTO = userService.search(userName);
+                String userName1 = userDTO.getUserName();
+                String password = userDTO.getPassword();
 
-            if((txtUserName.getText().equals(userName1)&&txtPassword.getText().equals(password))){
-                Stage stage = Navigation.init(mainContext);
-                stage.close();
-                Navigation.navigate(Routes.DashBoard);
+
+                if((txtUserName.getText().equals(userName1)&&txtPassword.getText().equals(password))){
+                    Stage stage = Navigation.init(mainContext);
+                    stage.close();
+                    Navigation.navigate(Routes.DashBoard);
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"something happen, please try again").show();
+
+                }
             }
 
         } catch (NullPointerException e) {
             System.out.println(e);
-            new Alert(Alert.AlertType.ERROR,"User cannot found").show();
+            new Alert(Alert.AlertType.ERROR,"Enter valid user name and password").show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR,"Something happen please try again or contact developer").show();
             throw new RuntimeException(e);
