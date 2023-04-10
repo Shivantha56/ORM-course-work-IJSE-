@@ -4,8 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
-
+import java.sql.Date;
 @NoArgsConstructor
 @Getter
 @Setter
@@ -13,14 +12,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @Entity
-public class Student {
+public class Reservation {
     @Id
+    private String res_id;
+    private Date date;
     private String student_id;
-    private String name;
-    private String address;
-    private String contact_no;
-    private Date dob;
-    private String gender;
-
-
+    private String room_type_id;
+    private String status;
 }

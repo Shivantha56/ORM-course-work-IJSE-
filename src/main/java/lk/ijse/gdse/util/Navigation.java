@@ -35,12 +35,10 @@ public class Navigation {
                 resource = Navigation.class.getResource("/view/ManagedStudentForm.fxml");
                 Parent load = FXMLLoader.load(resource);
                 anchorPaneContext.getChildren().add(load);
+                stage.setTitle("Manage student");
                 return;
 
-            case A:
         }
-
-
 
         Parent load = FXMLLoader.load(resource);
         stage.setScene(new Scene(load));

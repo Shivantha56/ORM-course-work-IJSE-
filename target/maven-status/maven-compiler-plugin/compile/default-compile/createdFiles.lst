@@ -1,3 +1,5 @@
+lk/ijse/gdse/service/custom/impl/StudentServiceImpl.class
+lk/ijse/gdse/dao/custom/impl/StudenDAOImpl.class
 lk/ijse/gdse/dao/SuperDAO.class
 lk/ijse/gdse/entity/Student.class
 lk/ijse/gdse/dao/custom/UserDAO.class
@@ -6,6 +8,7 @@ lk/ijse/gdse/service/custom/UserService.class
 lk/ijse/gdse/dao/DaoTypes.class
 lk/ijse/gdse/util/Navigation.class
 lk/ijse/gdse/service/ServiceFactory.class
+lk/ijse/gdse/controller/ManagedStudentFormController.class
 lk/ijse/gdse/entity/User.class
 lk/ijse/gdse/service/ServiceType.class
 lk/ijse/gdse/util/FactoryConfiguration.class

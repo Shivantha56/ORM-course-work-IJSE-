@@ -1,5 +1,5 @@
 .button{
-    -fx-background-color:#6433d8;
+        -fx-background-color:#6433d8;
 }
 
 .button:hover{
@@ -10,9 +10,17 @@
     -fx-background-color:#192022;
 }
 
+.button:focused{
+    -fx-background-color:#192022;
+}
+
+.text-field:focused{
+    -fx-border-color:#6433d8 ;
+}
+
 .table-view .column-header,
 .table-view .column-header-background.filler{
-    -fx-background-color : #F1F6F8;
+    -fx-background-color : white;
 }
 
 .table-view .column-header .label{
