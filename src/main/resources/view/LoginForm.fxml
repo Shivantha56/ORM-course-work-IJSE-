@@ -9,85 +9,84 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
+<AnchorPane fx:id="mainContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="515.0" fitWidth="864.0">
+      <ImageView fitHeight="539.0" fitWidth="956.0">
          <image>
             <Image url="@../assets/Group%204.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="515.0" fitWidth="854.0" layoutX="10.0" layoutY="-1.0">
+      <ImageView fitHeight="528.0" fitWidth="929.0" layoutX="10.0" layoutY="-1.0">
          <image>
             <Image url="@../assets/Rectangle%203.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="373.0" fitWidth="399.0" layoutX="74.0" layoutY="119.0">
+      <ImageView fitHeight="388.0" fitWidth="465.0" layoutX="74.0" layoutY="94.0">
          <image>
             <Image url="@../assets/image-removebg-preview%20(12)%201.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtUserName" layoutX="531.0" layoutY="230.0" prefHeight="25.0" prefWidth="249.0" promptText="User name" style="-fx-border-color: #6433D8;" />
-      <Label layoutX="92.0" layoutY="73.0" text="WELCOME BACK!">
+      <TextField fx:id="txtUserName" layoutX="599.0" layoutY="205.0" prefHeight="25.0" prefWidth="249.0" promptText="User name" style="-fx-border-color: #6433D8;" />
+      <Label layoutX="65.0" layoutY="42.0" text="WELCOME BACK!">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="100.0" opacity="0.35" text="Log in to continue">
+      <Label layoutX="66.0" layoutY="69.0" opacity="0.35" text="Log in to continue">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="584.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
+      <Button layoutX="652.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fitHeight="123.0" fitWidth="125.0" layoutX="593.0" layoutY="29.0">
+      <ImageView fitHeight="123.0" fitWidth="125.0" layoutX="661.0" layoutY="48.0">
          <image>
             <Image url="@../assets/Group%203%20(4).png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="txtPassword" layoutX="531.0" layoutY="279.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" style="-fx-border-color: #6433D8;" styleClass="border" />
-      <Label layoutX="600.0" layoutY="146.0" text="HOSTEL SERVICE" textFill="#6433d8" />
-      <Label layoutX="541.0" layoutY="179.0" text="Enter your user name and password" textFill="#d90909" />
-      <Button layoutX="584.0" layoutY="425.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Sign up" textFill="WHITE">
+      <PasswordField fx:id="txtPassword" layoutX="599.0" layoutY="254.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" style="-fx-border-color: #6433D8;" styleClass="border" />
+      <Label layoutX="673.0" layoutY="165.0" text="HOSTEL SERVICE" textFill="#6433d8" />
+      <Button layoutX="652.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Sign up" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="644.0" layoutY="404.0" text="OR" />
-      <AnchorPane fx:id="signUpContext" layoutX="46.0" layoutY="33.0" prefHeight="461.0" prefWidth="784.0" style="-fx-background-color: white;" visible="false">
+      <Label layoutX="706.0" layoutY="380.0" text="OR" />
+      <JFXCheckBox fx:id="checkBoxShowPassword" layoutX="599.0" layoutY="299.0" onAction="#checkBoxShowPassword" text="Show password" />
+      <TextField fx:id="showPasswordField" layoutX="599.0" layoutY="254.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" style="-fx-border-color: #6433D8;" visible="false" />
+      <AnchorPane fx:id="signUpContext" layoutX="46.0" layoutY="33.0" prefHeight="486.0" prefWidth="854.0" style="-fx-background-color: white;" visible="false">
          <children>
-            <Label layoutX="200.0" layoutY="14.0" text="Welcome to the hostel management system" textFill="#6433d8">
+            <TextField fx:id="signUpUserName" layoutX="151.0" layoutY="202.0" prefHeight="27.0" prefWidth="249.0" style="-fx-border-color: #6433d8;" />
+            <Label layoutX="245.0" layoutY="14.0" text="Welcome to the hostel management system" textFill="#6433d8">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Label>
-            <TextField fx:id="signupFullName" layoutX="106.0" layoutY="142.0" prefHeight="27.0" prefWidth="546.0" style="-fx-border-color: #6433d8;" />
-            <TextField fx:id="signUpUserName" layoutX="104.0" layoutY="202.0" prefHeight="27.0" prefWidth="259.0" style="-fx-border-color: #6433d8;" />
-            <TextField fx:id="singUpPassword" layoutX="104.0" layoutY="260.0" prefHeight="27.0" prefWidth="546.0" style="-fx-border-color: #6433d8;" />
-            <TextField fx:id="signUpEmail" layoutX="403.0" layoutY="202.0" prefHeight="27.0" prefWidth="249.0" style="-fx-border-color: #6433d8;" />
-            <Label layoutX="106.0" layoutY="120.0" text="Full name" />
-            <Label layoutX="104.0" layoutY="180.0" text="User name" />
-            <Label layoutX="403.0" layoutY="180.0" text="Email" />
-            <Label layoutX="106.0" layoutY="240.0" text="Password" />
-            <Button layoutX="326.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnSignupInSignFormOnAction" prefHeight="27.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Sign up" textFill="WHITE">
+            <TextField fx:id="signupFullName" layoutX="151.0" layoutY="142.0" prefHeight="27.0" prefWidth="546.0" style="-fx-border-color: #6433d8;" />
+            <TextField fx:id="singUpPassword" layoutX="149.0" layoutY="260.0" prefHeight="27.0" prefWidth="546.0" style="-fx-border-color: #6433d8;" />
+            <TextField fx:id="signUpEmail" layoutX="448.0" layoutY="202.0" prefHeight="27.0" prefWidth="249.0" style="-fx-border-color: #6433d8;" />
+            <Label layoutX="151.0" layoutY="120.0" text="Full name" />
+            <Label layoutX="149.0" layoutY="180.0" text="User name" />
+            <Label layoutX="448.0" layoutY="180.0" text="Email" />
+            <Label layoutX="151.0" layoutY="240.0" text="Password" />
+            <Button layoutX="371.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnSignupInSignFormOnAction" prefHeight="27.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Sign up" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="326.0" layoutY="384.0" mnemonicParsing="false" onAction="#btnLoginSignupFormOnAction" prefHeight="27.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
+            <Button layoutX="371.0" layoutY="384.0" mnemonicParsing="false" onAction="#btnLoginSignupFormOnAction" prefHeight="27.0" prefWidth="133.0" style="-fx-background-color: #6433D8; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="385.0" layoutY="362.0" text="OR" />
-            <Label layoutX="249.0" layoutY="42.0" text="Create your user account here">
+            <Label layoutX="430.0" layoutY="362.0" text="OR" />
+            <Label layoutX="294.0" layoutY="42.0" text="Create your user account here">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <JFXCheckBox fx:id="checkBoxShowPassword" layoutX="531.0" layoutY="319.0" onAction="#checkBoxShowPassword" text="Show password" />
-      <TextField fx:id="showPasswordField" layoutX="531.0" layoutY="279.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" style="-fx-border-color: #6433D8;" visible="false" />
    </children>
 </AnchorPane>
