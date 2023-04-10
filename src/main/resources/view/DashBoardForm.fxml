@@ -53,13 +53,6 @@
             <Image url="@../assets/Hostel%20Service.png" />
          </image>
       </ImageView>
-      <Text fill="#b6afaf" layoutX="313.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student" />
-      <TextField layoutX="380.0" layoutY="17.0" prefHeight="25.0" prefWidth="364.0" />
-      <ImageView fitHeight="29.0" fitWidth="35.0" layoutX="276.0" layoutY="18.0">
-         <image>
-            <Image url="@../assets/image-removebg-preview%20(18).png" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="dashBoardContext" layoutX="4.0" layoutY="108.0" prefHeight="615.0" prefWidth="1275.0" />
    </children>
 </AnchorPane>

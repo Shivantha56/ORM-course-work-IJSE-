@@ -1,0 +1,33 @@
+package lk.ijse.gdse.dao.custom.impl;
+
+import lk.ijse.gdse.entity.Student;
+import lk.ijse.gdse.entity.User;
+import lk.ijse.gdse.util.FactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class StudentDAOImpl {
+    public boolean save(Student student)throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(student);
+
+        transaction.commit();
+        session.close();
+        return true;
+
+    }
+
+
+    public Student search(String phoneNumber) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Student student = session.get(Student.class, phoneNumber);
+
+        transaction.commit();
+        session.close();
+        return student;
+    }
+}
