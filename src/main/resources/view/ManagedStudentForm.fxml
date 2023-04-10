@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="615.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.ManagedStudentFormController">
+   <children>
+      <Label layoutX="719.0" layoutY="180.0" prefHeight="255.0" prefWidth="542.0" text="Student Manage">
+         <font>
+            <Font size="65.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

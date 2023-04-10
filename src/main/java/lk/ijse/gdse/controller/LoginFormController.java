@@ -56,7 +56,7 @@ public class LoginFormController {
                 if ((txtUserName.getText().equals(userName1) && txtPassword.getText().equals(password))) {
                     Stage stage = Navigation.init(mainContext);
                     stage.close();
-                    Navigation.navigate(Routes.DashBoard);
+                    Navigation.navigate(Routes.DashBoard,mainContext);
                 } else {
                     new Alert(Alert.AlertType.ERROR, "something happen, please try again").show();
 

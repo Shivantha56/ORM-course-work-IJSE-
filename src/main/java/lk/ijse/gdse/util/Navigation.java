@@ -5,27 +5,39 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class Navigation {
 
-    public static Stage init(AnchorPane anchorPane){
-        Stage stage =(Stage)anchorPane.getScene().getWindow();
-        return stage;
+    private AnchorPane anchorPaneContext;
+
+    public static Stage init(AnchorPane anchorPane) throws IOException {
+        return (Stage)anchorPane.getScene().getWindow();
     }
 
-    public static void navigate(Routes routes)throws IOException {
+    public static void navigate(Routes routes,AnchorPane anchorPaneContext)throws IOException {
 
-        Stage stage = new Stage();
+//        Stage stage = new Stage();
+        Stage stage = init(anchorPaneContext);
+        anchorPaneContext.getChildren().clear();
+
         URL resource = null;
+
         switch (routes){
             case DashBoard:
                  resource = Navigation.class.getResource("/view/DashBoardForm.fxml");
                  break;
-            case Home:
-                break;
+
+            case ManageStudent:
+                resource = Navigation.class.getResource("/view/ManagedStudentForm.fxml");
+                Parent load = FXMLLoader.load(resource);
+                anchorPaneContext.getChildren().add(load);
+                return;
+
+            case A:
         }
 
 
