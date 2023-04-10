@@ -24,4 +24,16 @@ public class StudentServiceImpl {
                 student.getDob(),student.getGender()
         );
     }
+
+    public boolean update(StudentDTO studentDTO) throws Exception {
+        studentDAO.update(new Student(studentDTO.getStudent_id(),studentDTO.getName(),studentDTO.getAddress(),
+                studentDTO.getContact_no(),studentDTO.getDob(),studentDTO.getGender()
+        ));
+        return true;
+    }
+
+    public boolean delete(String id) throws Exception {
+        studentDAO.delete(id);
+        return true;
+    }
 }

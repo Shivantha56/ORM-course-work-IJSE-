@@ -56,11 +56,48 @@ public class ManagedStudentFormController {
     }
 
     public void updateStudentOnAction(ActionEvent actionEvent) {
+        String gender;
+        if (radioBtnFemale.isSelected()){
+            gender = "FeMale";
+        }else{
+            gender = "Male";
+        }
 
+        String studentId = txtStudentId.getText();
+        String name = txtStudentName.getText();
+        String address = txtAddress.getText();
+        String contactNo = txtContactNo.getText();
+        Date date = Date.valueOf(dateDOB.getValue());
+
+        try {
+            boolean student = studentService.update(new StudentDTO(studentId, name, address, contactNo, date, gender));
+            if (student){
+                new Alert(Alert.AlertType.CONFIRMATION, "User Update successful!").show();
+            }else {
+                new Alert(Alert.AlertType.CONFIRMATION, "User can not update").show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Something happen please try again or contact developer").show();
+        }
     }
 
     public void deleteStudentOnAction(ActionEvent actionEvent) {
 
+        Alert alert = new Alert(Alert.AlertType.WARNING,"do you want delete Student");
+        alert.show();
+
+        try {
+            boolean delete = studentService.delete(txtStudentId.getText());
+            if (delete){
+                new Alert(Alert.AlertType.CONFIRMATION, "Student delete successful!").show();
+            }else {
+                new Alert(Alert.AlertType.CONFIRMATION, "User can not delete").show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Something happen please try again or contact developer").show();
+        }
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
@@ -81,9 +118,9 @@ public class ManagedStudentFormController {
 
 
         if (Objects.equals(gender, "Male")){
-            radioBtnMale.selectedProperty();
-        }else {
-            radioBtnFemale.selectedProperty();
+            radioBtnMale.setSelected(true);
+        }else if (Objects.equals(gender, "FeMale")){
+            radioBtnFemale.setSelected(true);
         }
     }
 }

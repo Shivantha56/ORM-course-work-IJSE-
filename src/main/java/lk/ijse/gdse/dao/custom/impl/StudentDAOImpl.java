@@ -30,4 +30,27 @@ public class StudentDAOImpl {
         session.close();
         return student;
     }
+
+    public boolean update(Student student)throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.update(student);
+
+        transaction.commit();
+        session.close();
+        return true;
+    }
+
+    public boolean delete(String id)throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Student student = session.get(Student.class, id);
+        session.delete(student);
+
+        transaction.commit();
+        session.close();
+        return true;
+    }
 }
