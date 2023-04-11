@@ -37,6 +37,13 @@ public class ManagedStudentFormController implements Initializable {
 
     StudentServiceImpl studentService = new StudentServiceImpl();
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        setTableValue();
+
+    }
+
     public void saveBtnOnAction(ActionEvent actionEvent) {
 
         String gender;
@@ -62,10 +69,14 @@ public class ManagedStudentFormController implements Initializable {
 
             }
 
+            tblStudent.refresh();
+
         } catch (Exception e) {
             System.out.println(e);
             new Alert(Alert.AlertType.ERROR, "Something happen please try again or contact developer").show();
         }
+
+        setTableValue();
 
     }
 
@@ -106,12 +117,16 @@ public class ManagedStudentFormController implements Initializable {
             if (delete) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Student delete successful!").show();
             } else {
+
                 new Alert(Alert.AlertType.CONFIRMATION, "User can not delete").show();
             }
         } catch (Exception e) {
             System.out.println(e);
             new Alert(Alert.AlertType.ERROR, "Something happen please try again or contact developer").show();
         }
+
+        setTableValue();
+
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
@@ -163,9 +178,7 @@ public class ManagedStudentFormController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void setTableValue(){
         getAll();
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -173,9 +186,7 @@ public class ManagedStudentFormController implements Initializable {
         colContactNo.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
         colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-    }
-
-    public void AAA(ActionEvent actionEvent) {
 
     }
+
 }

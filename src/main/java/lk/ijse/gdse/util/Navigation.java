@@ -38,6 +38,14 @@ public class Navigation {
                 stage.setTitle("Manage student");
                 return;
 
+            case ManageRooms:
+                resource = Navigation.class.getResource("/view/MangeRoomsForm.fxml");
+                Parent load1 = FXMLLoader.load(resource);
+                anchorPaneContext.getChildren().add(load1);
+                stage.setTitle("Manage Rooms");
+                return;
+
+
         }
 
         Parent load = FXMLLoader.load(resource);
