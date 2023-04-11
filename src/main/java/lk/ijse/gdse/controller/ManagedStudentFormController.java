@@ -1,15 +1,22 @@
 package lk.ijse.gdse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse.dto.StudentDTO;
+import lk.ijse.gdse.entity.Student;
 import lk.ijse.gdse.service.custom.impl.StudentServiceImpl;
 
+import java.net.URL;
 import java.sql.Date;
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class ManagedStudentFormController {
+public class ManagedStudentFormController implements Initializable {
 
     public TextField txtStudentId;
     public TextField txtStudentName;
@@ -20,15 +27,22 @@ public class ManagedStudentFormController {
     public RadioButton radioBtnFemale;
     public DatePicker dateDOB;
     public TextField txtSearch;
+    public TableView <Student> tblStudent;
+    public TableColumn colStudentId;
+    public TableColumn colStudentName;
+    public TableColumn colAddress;
+    public TableColumn colContactNo;
+    public TableColumn colGender;
+    public TableColumn colDob;
 
     StudentServiceImpl studentService = new StudentServiceImpl();
 
     public void saveBtnOnAction(ActionEvent actionEvent) {
 
         String gender;
-        if (radioBtnFemale.isSelected()){
+        if (radioBtnFemale.isSelected()) {
             gender = "FeMale";
-        }else{
+        } else {
             gender = "Male";
         }
 
@@ -40,10 +54,10 @@ public class ManagedStudentFormController {
 
         try {
             boolean save = studentService.save(new StudentDTO(studentId, name, address, contactNo, date, gender));
-            if (save){
+            if (save) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User saved successful!").show();
 
-            }else {
+            } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "User can not saved").show();
 
             }
@@ -57,9 +71,9 @@ public class ManagedStudentFormController {
 
     public void updateStudentOnAction(ActionEvent actionEvent) {
         String gender;
-        if (radioBtnFemale.isSelected()){
+        if (radioBtnFemale.isSelected()) {
             gender = "FeMale";
-        }else{
+        } else {
             gender = "Male";
         }
 
@@ -71,9 +85,9 @@ public class ManagedStudentFormController {
 
         try {
             boolean student = studentService.update(new StudentDTO(studentId, name, address, contactNo, date, gender));
-            if (student){
+            if (student) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User Update successful!").show();
-            }else {
+            } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "User can not update").show();
             }
         } catch (Exception e) {
@@ -84,14 +98,14 @@ public class ManagedStudentFormController {
 
     public void deleteStudentOnAction(ActionEvent actionEvent) {
 
-        Alert alert = new Alert(Alert.AlertType.WARNING,"do you want delete Student");
+        Alert alert = new Alert(Alert.AlertType.WARNING, "do you want delete Student");
         alert.show();
 
         try {
             boolean delete = studentService.delete(txtStudentId.getText());
-            if (delete){
+            if (delete) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Student delete successful!").show();
-            }else {
+            } else {
                 new Alert(Alert.AlertType.CONFIRMATION, "User can not delete").show();
             }
         } catch (Exception e) {
@@ -109,18 +123,59 @@ public class ManagedStudentFormController {
         String gender = studentDTO.getGender();
 
 
-
         txtStudentId.setText(studentId);
         txtStudentName.setText(name);
         txtAddress.setText(address);
         txtContactNo.setText(contactNo);
 
 
-
-        if (Objects.equals(gender, "Male")){
+        if (Objects.equals(gender, "Male")) {
             radioBtnMale.setSelected(true);
-        }else if (Objects.equals(gender, "FeMale")){
+        } else if (Objects.equals(gender, "FeMale")) {
             radioBtnFemale.setSelected(true);
         }
+    }
+
+
+    public void getAll(){
+
+        ObservableList<Student> obList = FXCollections.observableArrayList();
+        try {
+            List<Student> studentList = studentService.getAll();
+
+            for (Student student:studentList) {
+
+                obList.add(new Student(
+                        student.getStudent_id(),
+                        student.getName(),
+                        student.getAddress(),
+                        student.getContact_no(),
+                        student.getDob(),
+                        student.getGender()
+                        ));
+
+            }
+            tblStudent.setItems(obList);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        getAll();
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colStudentName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colContactNo.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+    }
+
+    public void AAA(ActionEvent actionEvent) {
+
     }
 }
