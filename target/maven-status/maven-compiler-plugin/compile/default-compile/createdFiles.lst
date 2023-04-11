@@ -22,6 +22,7 @@ lk/ijse/gdse/dao/SuperDAO.class
 lk/ijse/gdse/dao/custom/impl/UserDAOImpl.class
 lk/ijse/gdse/service/custom/UserService.class
 lk/ijse/gdse/dao/custom/impl/StudentDAOImpl.class
+lk/ijse/gdse/controller/MangeRoomsFormController.class
 lk/ijse/gdse/service/ServiceType.class
 lk/ijse/gdse/dto/ReservationDTO.class
 lk/ijse/gdse/dto/RoomsDTO.class

@@ -1,6 +1,7 @@
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dto/UserDTO.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/entity/Student.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dao/custom/impl/UserDAOImpl.java
+/home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/controller/MangeRoomsFormController.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dto/ReservationDTO.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dao/CrudDAO.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/controller/DashBoardFormController.java
