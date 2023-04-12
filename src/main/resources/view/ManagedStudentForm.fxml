@@ -22,12 +22,12 @@
       <RadioButton fx:id="radioBtnFemale" layoutX="830.0" layoutY="122.0" mnemonicParsing="false" text="Female" toggleGroup="$radioBtnGender" />
       <TableView fx:id="tblStudent" layoutX="21.0" layoutY="236.0" prefHeight="356.0" prefWidth="1231.0" stylesheets="@../assets/css/btnStyle.css" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn fx:id="colStudentId" prefWidth="130.0" style="-fx-alignment: center;" text="Student id" />
-          <TableColumn fx:id="colStudentName" prefWidth="400.0" style="-fx-alignment: center;" text="Student name" />
-            <TableColumn fx:id="colAddress" prefWidth="259.0" style="-fx-alignment: center;" text="Address" />
-            <TableColumn fx:id="colContactNo" prefWidth="166.0" style="-fx-alignment: center;" text="Contact no" />
-            <TableColumn fx:id="colGender" prefWidth="108.0" style="-fx-alignment: center;" text="Gender" />
-            <TableColumn fx:id="colDob" prefWidth="163.0" style="-fx-alignment: center;" text="DOB" />
+          <TableColumn fx:id="colStudentId" prefWidth="130.0" text="Student id" />
+          <TableColumn fx:id="colStudentName" prefWidth="400.0" text="Student name" />
+            <TableColumn fx:id="colAddress" prefWidth="259.0" text="Address" />
+            <TableColumn fx:id="colContactNo" prefWidth="166.0" text="Contact no" />
+            <TableColumn fx:id="colGender" prefWidth="108.0" text="Gender" />
+            <TableColumn fx:id="colDob" prefWidth="163.0" text="DOB" />
         </columns>
       </TableView>
       <Label layoutX="50.0" layoutY="44.0" text="Student id" textFill="#6433d8">
