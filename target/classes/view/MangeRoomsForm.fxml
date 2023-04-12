@@ -11,18 +11,18 @@
 
 <AnchorPane prefHeight="615.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.MangeRoomsFormController">
    <children>
-      <TableView layoutX="142.0" layoutY="344.0" prefHeight="223.0" prefWidth="983.0" stylesheets="@../assets/css/btnStyle.css">
+      <TableView fx:id="tblRooms" layoutX="142.0" layoutY="344.0" prefHeight="223.0" prefWidth="983.0" stylesheets="@../assets/css/btnStyle.css">
         <columns>
-          <TableColumn prefWidth="163.0" text="Room type id" />
-          <TableColumn prefWidth="284.0" text="Type" />
-            <TableColumn prefWidth="277.0" text="Key money (LKR)" />
-            <TableColumn prefWidth="258.0" text="Rooms qty" />
+          <TableColumn fx:id="colRoomId" prefWidth="163.0" text="Room type id" />
+          <TableColumn fx:id="colType" prefWidth="284.0" text="Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="277.0" text="Key money (LKR)" />
+            <TableColumn fx:id="colRoomQty" prefWidth="258.0" text="Rooms qty" />
         </columns>
       </TableView>
-      <TextField layoutX="23.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
-      <TextField layoutX="335.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
-      <TextField layoutX="655.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
-      <TextField layoutX="965.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
+      <TextField fx:id="txtRoomId" layoutX="23.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
+      <TextField fx:id="txtType" layoutX="335.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
+      <TextField fx:id="txtKeyMoney" layoutX="655.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
+      <TextField fx:id="txtRoomQty" layoutX="965.0" layoutY="218.0" prefHeight="25.0" prefWidth="292.0" />
       <Label layoutX="23.0" layoutY="194.0" text="Room type id" textFill="#6433d8">
          <font>
             <Font name="System Bold" size="13.0" />

@@ -7,6 +7,7 @@ lk/ijse/gdse/service/ServiceFactory.class
 lk/ijse/gdse/dto/StudentDTO.class
 lk/ijse/gdse/controller/ManagedStudentFormController.class
 lk/ijse/gdse/entity/Reservation.class
+lk/ijse/gdse/dao/custom/impl/RoomsDAOImpl.class
 lk/ijse/gdse/entity/User.class
 lk/ijse/gdse/util/FactoryConfiguration.class
 lk/ijse/gdse/AppInitializer.class
@@ -19,6 +20,7 @@ lk/ijse/gdse/entity/Rooms.class
 lk/ijse/gdse/service/SuoerService.class
 lk/ijse/gdse/dao/DaoFactory.class
 lk/ijse/gdse/dao/SuperDAO.class
+lk/ijse/gdse/service/custom/impl/RooServiceImpl.class
 lk/ijse/gdse/dao/custom/impl/UserDAOImpl.class
 lk/ijse/gdse/service/custom/UserService.class
 lk/ijse/gdse/dao/custom/impl/StudentDAOImpl.class
