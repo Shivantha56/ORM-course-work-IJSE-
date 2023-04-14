@@ -45,6 +45,13 @@ public class Navigation {
                 stage.setTitle("Manage Rooms");
                 return;
 
+                case ReservationForm:
+                    resource = Navigation.class.getResource("/view/ReservationForm.fxml");
+                    Parent load2 = FXMLLoader.load(resource);
+                    anchorPaneContext.getChildren().add(load2);
+                    stage.setTitle("Reservation Form");
+                    return;
+
 
         }
 

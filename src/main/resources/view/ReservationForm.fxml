@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="dashBoardContext" prefHeight="615.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.ReservationFormController">
+   <children>
+      <Label layoutX="370.0" layoutY="265.0" prefHeight="202.0" prefWidth="731.0" text="Dashboard form">
+         <font>
+            <Font size="80.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

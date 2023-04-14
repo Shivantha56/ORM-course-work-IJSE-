@@ -42,7 +42,7 @@ public class DashBoardFormController implements Initializable {
     }
 
     public void btnReservationOnAction(ActionEvent actionEvent) throws IOException {
-
+        Navigation.navigate(Routes.ReservationForm,dashBoardContext);
     }
 
     public void btnManageRoomsOnAction(ActionEvent actionEvent) throws IOException {

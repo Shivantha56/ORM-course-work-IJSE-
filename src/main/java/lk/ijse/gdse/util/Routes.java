@@ -1,5 +1,5 @@
 package lk.ijse.gdse.util;
 
 public enum Routes {
-    DashBoard , ManageStudent , ManageRooms
+    DashBoard , ManageStudent , ManageRooms , ReservationForm
 }
