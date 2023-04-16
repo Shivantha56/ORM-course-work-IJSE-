@@ -19,13 +19,11 @@ public class StudentServiceImpl {
 
     public StudentDTO search(String phoneNumber) {
 
-        Student student = studentDAO.search(phoneNumber);
-
-        return new StudentDTO(student.getStudent_id(),student.getName(),student.getAddress(),student.getContact_no(),
-                student.getDob(),student.getGender()
-        );
+        List<Student> studentList = studentDAO.search(phoneNumber);
 
 
+
+        return  null;
     }
 
     public boolean update(StudentDTO studentDTO) throws Exception {

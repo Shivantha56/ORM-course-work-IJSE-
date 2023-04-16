@@ -34,4 +34,31 @@ public class RoomsDAOImpl {
         session.close();
         return roomList;
     }
+
+    public List<Rooms> getRoomId(){
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql = "select room_type_id from Rooms";
+        Query query = session.createQuery(hql);
+        List <Rooms> roomList = query.list();
+
+        transaction.commit();
+        session.close();
+        return roomList;
+    }
+
+    public Rooms searchByRoomId(String roomId) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Rooms rooms = session.get(Rooms.class, roomId);
+
+
+        transaction.commit();
+        session.close();
+        return rooms;
+    }
+
+
 }

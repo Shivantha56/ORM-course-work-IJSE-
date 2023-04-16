@@ -24,15 +24,19 @@ public class StudentDAOImpl {
     }
 
 
-    public Student search(String phoneNumber) {
+    public List<Student> search(String phoneNumber) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Student student = session.get(Student.class, phoneNumber);
+        String hql = "from Student where contact_no = "+phoneNumber;
+        Query query = session.createQuery(hql);
+        List <Student> studentList = query.list();
+
+
 
         transaction.commit();
         session.close();
-        return student;
+        return studentList;
     }
 
     public boolean update(Student student)throws Exception {
@@ -72,4 +76,5 @@ public class StudentDAOImpl {
         return studentList;
 
     }
+
 }

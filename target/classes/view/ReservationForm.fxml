@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,13 +9,78 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="dashBoardContext" prefHeight="615.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.ReservationFormController">
    <children>
-      <Label layoutX="370.0" layoutY="265.0" prefHeight="202.0" prefWidth="731.0" text="Dashboard form">
+      <Button layoutX="1136.0" layoutY="563.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: red;" text="Reservation" textFill="WHITE">
          <font>
-            <Font size="80.0" />
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblCart" layoutX="28.0" layoutY="319.0" prefHeight="200.0" prefWidth="1214.0">
+        <columns>
+          <TableColumn fx:id="colReservation" prefWidth="150.0" text="Reservation id" />
+          <TableColumn fx:id="colStudentId" minWidth="0.0" prefWidth="162.0" text="Student id" />
+            <TableColumn fx:id="colStudentName" prefWidth="302.0" text="Student name" />
+            <TableColumn fx:id="colRoomId" prefWidth="218.0" text="Room id" />
+            <TableColumn fx:id="colStatus" prefWidth="149.0" text="Staus" />
+            <TableColumn fx:id="colQty" minWidth="0.0" prefWidth="95.0" text="qty" />
+            <TableColumn fx:id="colButton" prefWidth="123.0" style="-fx-alignment: center;" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="txtReservationId" layoutX="69.0" layoutY="167.0" prefHeight="25.0" prefWidth="206.0" promptText="Reservation id" />
+      <JFXTextField fx:id="txtStudentPhoneNumber" layoutX="71.0" layoutY="85.0" onAction="#txtStudentPhoneNumberOnAction" prefHeight="25.0" prefWidth="212.0" promptText="Student phone number" />
+      <JFXTextField fx:id="txtStudentName" layoutX="322.0" layoutY="168.0" prefHeight="25.0" prefWidth="349.0" promptText="Student  name" />
+      <JFXTextField fx:id="txtQuantity" layoutX="70.0" layoutY="224.0" prefHeight="25.0" prefWidth="212.0" promptText="Qty" />
+      <JFXTextField fx:id="roomType" layoutX="727.0" layoutY="169.0" prefHeight="25.0" prefWidth="212.0" promptText="Enter room type" />
+      <Button layoutX="855.0" layoutY="263.0" mnemonicParsing="false" onAction="#addToCartButtonOnAction" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: yellow;" text="Add to cart">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="1008.0" layoutY="263.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: green;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="328.0" layoutY="23.0" prefHeight="25.0" prefWidth="129.0" text="Key money  :">
+         <font>
+            <Font size="17.0" />
          </font>
       </Label>
+      <Label fx:id="lblKeyMoney" layoutX="459.0" layoutY="23.0" prefHeight="25.0" prefWidth="129.0" text="0.00" textFill="#e80000">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="23.0" prefHeight="25.0" prefWidth="150.0" text="Reservation id  :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Text layoutX="172.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S00001">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Label layoutX="606.0" layoutY="23.0" prefHeight="25.0" prefWidth="150.0" text="Available rooms :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAvailableRooms" layoutX="765.0" layoutY="24.0" prefHeight="25.0" prefWidth="129.0" text="0.00" textFill="#ff0505">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceBox" layoutX="331.0" layoutY="85.0" prefHeight="25.0" prefWidth="227.0" />
+      <Separator layoutX="2.0" layoutY="56.0" prefHeight="20.0" prefWidth="1267.0" />
+      <Separator layoutX="3.0" layoutY="127.0" prefHeight="20.0" prefWidth="1267.0" />
+      <Button layoutX="609.0" layoutY="78.0" mnemonicParsing="false" onAction="#searchButtonOnAction" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: purple;" text="Search" textFill="WHITE" />
+      <JFXRadioButton fx:id="paidRadioButton" layoutX="1011.0" layoutY="180.0" selected="true" text="paid">
+         <toggleGroup>
+            <ToggleGroup fx:id="keymoney" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="notPaidRadioButton" layoutX="1092.0" layoutY="180.0" text="not paid" toggleGroup="$keymoney" />
    </children>
 </AnchorPane>

@@ -1,8 +1,10 @@
 package lk.ijse.gdse.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import java.sql.Date;
 @NoArgsConstructor
@@ -15,6 +17,7 @@ import java.sql.Date;
 public class Reservation {
     @Id
     private String res_id;
+    @CreationTimestamp
     private Date date;
     private String student_id;
     private String room_type_id;
