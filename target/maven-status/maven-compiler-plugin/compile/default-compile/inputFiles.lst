@@ -12,6 +12,7 @@
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dao/custom/impl/RoomsDAOImpl.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dao/DaoTypes.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/entity/Rooms.java
+/home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/dao/custom/impl/ReservationDAOImpl.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/service/ServiceType.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/entity/Reservation.java
 /home/dilshan/Desktop/ORM course work/Hostel Management System/src/main/java/lk/ijse/gdse/entity/User.java

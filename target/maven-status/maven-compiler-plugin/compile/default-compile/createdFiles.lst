@@ -18,6 +18,7 @@ lk/ijse/gdse/service/custom/impl/UserServiceImpl.class
 lk/ijse/gdse/view/CartTm.class
 lk/ijse/gdse/entity/SuperEntity.class
 lk/ijse/gdse/entity/Rooms.class
+lk/ijse/gdse/dao/custom/impl/ReservationDAOImpl.class
 lk/ijse/gdse/service/SuoerService.class
 lk/ijse/gdse/dao/DaoFactory.class
 lk/ijse/gdse/dao/SuperDAO.class

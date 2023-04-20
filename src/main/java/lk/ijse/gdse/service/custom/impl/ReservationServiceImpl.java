@@ -50,34 +50,34 @@ public class ReservationServiceImpl {
 
 
 
-    public void save(String reservationId,String status,String phoneNumber,String roomId) {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        Student getstudent = search(phoneNumber);
-        Student student = new Student(getstudent.getStudent_id(),getstudent.getName(),getstudent.getAddress(),getstudent.getContact_no(),getstudent.getDob(),getstudent.getGender());
-
-        Rooms getRooms = searchByRoomId(roomId);
-        Rooms rooms = new Rooms(getRooms.getRoom_type_id(),getRooms.getType(),getRooms.getKey_money(),getRooms.getQty());
-
-//        ArrayList<Student> students = new ArrayList<>();
-
-
-        try {
-
-            boolean save = reservationDAO.save(new Reservation(reservationId, student, rooms, status));
-            if(save){
-                transaction.commit();
-                new Alert(Alert.AlertType.CONFIRMATION,"Reservation Saved").show();
-            }else {
-                transaction.rollback();
-                new Alert(Alert.AlertType.CONFIRMATION,"Not saved").show();
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-
-        }
-
-
-    }
+//    public void save(String reservationId,String status,String phoneNumber,String roomId) {
+//        Session session = FactoryConfiguration.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        Student getstudent = search(phoneNumber);
+//        Student student = new Student(getstudent.getStudent_id(),getstudent.getName(),getstudent.getAddress(),getstudent.getContact_no(),getstudent.getDob(),getstudent.getGender());
+//
+//        Rooms getRooms = searchByRoomId(roomId);
+//        Rooms rooms = new Rooms(getRooms.getRoom_type_id(),getRooms.getType(),getRooms.getKey_money(),getRooms.getQty());
+//
+//
+//        try {
+//
+//            boolean save = reservationDAO.save(new Reservation(reservationId, student, rooms, status));
+//            if(save){
+//                transaction.commit();
+//                new Alert(Alert.AlertType.CONFIRMATION,"Reservation Saved").show();
+//            }else {
+//                transaction.rollback();
+//                new Alert(Alert.AlertType.ERROR,"Not saved").show();
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            new Alert(Alert.AlertType.WARNING,"Something happen please try again").show();
+//
+//
+//        }
+//
+//
+//    }
 }

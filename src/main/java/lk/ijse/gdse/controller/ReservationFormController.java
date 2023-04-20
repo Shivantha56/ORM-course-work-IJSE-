@@ -9,6 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.dao.custom.impl.ReservationDAOImpl;
+import lk.ijse.gdse.dao.custom.impl.RoomsDAOImpl;
+import lk.ijse.gdse.entity.Reservation;
 import lk.ijse.gdse.entity.Rooms;
 import lk.ijse.gdse.entity.Student;
 import lk.ijse.gdse.service.custom.impl.ReservationServiceImpl;
@@ -16,6 +19,7 @@ import lk.ijse.gdse.view.CartTm;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -80,7 +84,7 @@ public class ReservationFormController implements Initializable {
         }
     }
 
-    public String txtStudentPhoneNumberOnAction(ActionEvent actionEvent) {
+    public String getStudentPhoneNumber(){
         Student student = reservationService.search(txtStudentPhoneNumber.getText());
         String name = student.getName();
         String studentId = student.getStudent_id();
@@ -88,11 +92,30 @@ public class ReservationFormController implements Initializable {
         txtStudentName.setText(name);
 
         return studentId;
+
+    }
+
+    public void txtStudentPhoneNumberOnAction(ActionEvent actionEvent) {
+
+        getStudentPhoneNumber();
+//        Student student = reservationService.search(txtStudentPhoneNumber.getText());
+//        String name = student.getName();
+//        String studentId = student.getStudent_id();
+//
+//        txtStudentName.setText(name);
+//
+//        return studentId;
     }
 
     ObservableList<CartTm>cartTm = FXCollections.observableArrayList();
-    public String addToCartButtonOnAction(ActionEvent actionEvent) {
+    public void addToCartButtonOnAction(ActionEvent actionEvent) {
 
+        addToCart();
+    }
+
+    ArrayList<Reservation> reservation = new ArrayList<>();
+
+    public void addToCart(){
         String status = null;
         ArrayList<String> strings = searchBtnOnAction();
         Button button = new Button("Delete");
@@ -106,7 +129,7 @@ public class ReservationFormController implements Initializable {
         }
 
 
-        String studentId = txtStudentPhoneNumberOnAction(actionEvent);
+        String studentId = getStudentPhoneNumber();
         String reservationId = txtReservationId.getText();
         String studentName = txtStudentName.getText();
         String qty = txtQuantity.getText();
@@ -121,7 +144,7 @@ public class ReservationFormController implements Initializable {
                 status,
                 qty,
                 button
-                );
+        );
 
         button.setOnAction(e->{
 
@@ -133,11 +156,39 @@ public class ReservationFormController implements Initializable {
             }
         });
 
+
         cartTm.add(tm);
         tblCart.setItems(cartTm);
 
-        return status;
+        placeReservation();
 
+
+
+    }
+
+
+
+    public ArrayList<Reservation> placeReservation(){
+
+        String reservationId = txtReservationId.getText();
+        String status = null;
+
+        if (paidRadioButton.isSelected()){
+            status = "paid";
+
+        } else if (notPaidRadioButton.isSelected()) {
+            status = "not paid";
+
+        }
+
+        Student getstudent = reservationService.search(txtStudentPhoneNumber.getText());
+        Student student = new Student(getstudent.getStudent_id(),getstudent.getName(),getstudent.getAddress(),getstudent.getContact_no(),getstudent.getDob(),getstudent.getGender());
+
+        Rooms getRooms = reservationService.searchByRoomId(choiceBox.getValue());
+        Rooms rooms = new Rooms(getRooms.getRoom_type_id(),getRooms.getType(),getRooms.getKey_money(),getRooms.getQty());
+
+        reservation.add(new Reservation(reservationId,student,rooms,status));
+        return reservation;
     }
 
     public void searchButtonOnAction(ActionEvent actionEvent) {
@@ -167,21 +218,16 @@ public class ReservationFormController implements Initializable {
 
     }
 
+    ReservationDAOImpl reservationDAO = new ReservationDAOImpl();
 
-    public void reservationBtnOnAction(ActionEvent actionEvent) {
-        String status = null;
-        if (paidRadioButton.isSelected()){
-            status = "paid";
 
-        } else if (notPaidRadioButton.isSelected()) {
-            status = "not paid";
+    public void reservationBtnOnAction(ActionEvent actionEvent) throws Exception {
+
+        ArrayList<Reservation> reservations = placeReservation();
+
+        for (Reservation value : reservations) {
+            reservationDAO.save(value);
         }
 
-        String reservationId = txtReservationId.getText();
-        String phoneNumber = txtStudentPhoneNumber.getText();
-        String roomId = choiceBox.getValue();
-
-
-        reservationService.save(reservationId,status,phoneNumber,roomId);
     }
 }
