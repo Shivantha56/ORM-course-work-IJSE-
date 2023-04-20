@@ -21,6 +21,7 @@ public class DashBoardFormController implements Initializable {
     public Button btnManageStudent;
     public Button btnManageRooms;
     public Button btnReservation;
+    public AnchorPane anchorPaneDashBoard;
 
 
     @Override
@@ -48,5 +49,11 @@ public class DashBoardFormController implements Initializable {
     public void btnManageRoomsOnAction(ActionEvent actionEvent) throws IOException {
         Navigation.navigate(Routes.ManageRooms,dashBoardContext);
 
+    }
+
+    public void logOutBtnOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = Navigation.init(anchorPaneDashBoard);
+        stage.close();
+        Navigation.navigate(Routes.Logout,anchorPaneDashBoard);
     }
 }

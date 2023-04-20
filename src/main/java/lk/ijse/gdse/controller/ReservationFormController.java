@@ -91,7 +91,7 @@ public class ReservationFormController implements Initializable {
     }
 
     ObservableList<CartTm>cartTm = FXCollections.observableArrayList();
-    public void addToCartButtonOnAction(ActionEvent actionEvent) {
+    public String addToCartButtonOnAction(ActionEvent actionEvent) {
 
         String status = null;
         ArrayList<String> strings = searchBtnOnAction();
@@ -136,6 +136,7 @@ public class ReservationFormController implements Initializable {
         cartTm.add(tm);
         tblCart.setItems(cartTm);
 
+        return status;
 
     }
 
@@ -167,5 +168,20 @@ public class ReservationFormController implements Initializable {
     }
 
 
+    public void reservationBtnOnAction(ActionEvent actionEvent) {
+        String status = null;
+        if (paidRadioButton.isSelected()){
+            status = "paid";
 
+        } else if (notPaidRadioButton.isSelected()) {
+            status = "not paid";
+        }
+
+        String reservationId = txtReservationId.getText();
+        String phoneNumber = txtStudentPhoneNumber.getText();
+        String roomId = choiceBox.getValue();
+
+
+        reservationService.save(reservationId,status,phoneNumber,roomId);
+    }
 }

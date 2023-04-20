@@ -52,6 +52,10 @@ public class Navigation {
                     stage.setTitle("Reservation Form");
                     return;
 
+            case Logout:
+                resource = Navigation.class.getResource("/view/LoginForm.fxml");
+                break;
+
 
         }
 

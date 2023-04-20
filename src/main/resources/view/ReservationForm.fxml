@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="dashBoardContext" prefHeight="615.0" prefWidth="1275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.controller.ReservationFormController">
    <children>
-      <Button layoutX="1136.0" layoutY="563.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: red;" text="Reservation" textFill="WHITE">
+      <Button layoutX="1126.0" layoutY="563.0" mnemonicParsing="false" onAction="#reservationBtnOnAction" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: red;" text="Reservation" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -32,12 +32,7 @@
       <JFXTextField fx:id="txtStudentName" layoutX="322.0" layoutY="168.0" prefHeight="25.0" prefWidth="349.0" promptText="Student  name" />
       <JFXTextField fx:id="txtQuantity" layoutX="70.0" layoutY="224.0" prefHeight="25.0" prefWidth="212.0" promptText="Qty" />
       <JFXTextField fx:id="roomType" layoutX="727.0" layoutY="169.0" prefHeight="25.0" prefWidth="212.0" promptText="Enter room type" />
-      <Button layoutX="855.0" layoutY="263.0" mnemonicParsing="false" onAction="#addToCartButtonOnAction" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: yellow;" text="Add to cart">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="1008.0" layoutY="263.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: green;" text="Delete" textFill="WHITE">
+      <Button layoutX="1122.0" layoutY="263.0" mnemonicParsing="false" onAction="#addToCartButtonOnAction" prefHeight="38.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-background-color: yellow;" text="Add to cart">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -67,7 +62,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblAvailableRooms" layoutX="765.0" layoutY="24.0" prefHeight="25.0" prefWidth="129.0" text="0.00" textFill="#ff0505">
+      <Label fx:id="lblAvailableRooms" layoutX="765.0" layoutY="24.0" prefHeight="25.0" prefWidth="129.0" text="0" textFill="#ff0505">
          <font>
             <Font size="17.0" />
          </font>
