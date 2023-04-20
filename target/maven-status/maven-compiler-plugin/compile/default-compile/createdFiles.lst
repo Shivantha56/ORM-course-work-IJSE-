@@ -25,6 +25,7 @@ lk/ijse/gdse/dao/SuperDAO.class
 lk/ijse/gdse/service/custom/impl/RooServiceImpl.class
 lk/ijse/gdse/dao/custom/impl/UserDAOImpl.class
 lk/ijse/gdse/service/custom/UserService.class
+lk/ijse/gdse/util/Validate.class
 lk/ijse/gdse/dao/custom/impl/StudentDAOImpl.class
 lk/ijse/gdse/controller/MangeRoomsFormController.class
 lk/ijse/gdse/service/ServiceType.class
@@ -34,4 +35,5 @@ lk/ijse/gdse/dao/CrudDAO.class
 lk/ijse/gdse/util/Routes.class
 lk/ijse/gdse/service/custom/impl/ReservationServiceImpl.class
 lk/ijse/gdse/util/Navigation$1.class
+lk/ijse/gdse/controller/EditProfileFormController.class
 lk/ijse/gdse/controller/ReservationFormController.class

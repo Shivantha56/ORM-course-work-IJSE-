@@ -4,10 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.gdse.util.Navigation;
 import lk.ijse.gdse.util.Routes;
 
@@ -22,6 +24,7 @@ public class DashBoardFormController implements Initializable {
     public Button btnManageRooms;
     public Button btnReservation;
     public AnchorPane anchorPaneDashBoard;
+    public AnchorPane editProfileContext;
 
 
     @Override
@@ -55,5 +58,20 @@ public class DashBoardFormController implements Initializable {
         Stage stage = Navigation.init(anchorPaneDashBoard);
         stage.close();
         Navigation.navigate(Routes.Logout,anchorPaneDashBoard);
+    }
+
+    public void btnEditProfile(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        URL resource = getClass().getResource("/view/EditProfileForm.fxml");
+        Parent load = FXMLLoader.load(resource);
+        stage.setScene(new Scene(load));
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setTitle("Profile setting");
+        stage.show();
+        stage.centerOnScreen();
+        stage.setResizable(false);
+
+
+
     }
 }
